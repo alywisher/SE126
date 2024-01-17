@@ -22,7 +22,7 @@ with open ("week2/hw/lab2a.csv") as merp:
     for rec in file:
 
         #display the data value in neat colums
-        print(f"{rec[0]:10} \t{rec[1]:3} \t{rec[2]:10}")
+        #print(f"{rec[0]:10} \t{rec[1]:3} \t{rec[2]:10}")
 
         #store from rec list --> list
 
@@ -41,15 +41,15 @@ with open ("week2/hw/lab2a.csv") as merp:
 
 #final display 
         
-print("ROOM \tMAX \tMIN \t OVER")
-print("-----------------------------")
+print(f"{'ROOM':16} \tMAX \tMIN \t OVER")
+print("----------------------------------------------------------")
 
 over_count = 0
 for index in range(0, total_records):
    over = max_capacity[index] - number_registered[index]
    if (over < 0):
        over_count+=1
-       print(f"{room[index]} \t {max_capacity[index]} \t {number_registered[index]}")
+       print(f"{room[index]:16}\t{max_capacity[index]}\t{number_registered[index]}\t{abs(over)}")
     
 #final display
 
