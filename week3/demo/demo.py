@@ -7,7 +7,7 @@ import csv
 totalRecords = 0
 
 #creat lists - one for eatch potetial feild in file
-
+#1D List -- parelel lists
 compTypeList = []
 manuList = []
 processorList = []
@@ -17,6 +17,9 @@ numHddList = []
 hdd2List = []
 osList = []
 yearList = []
+#2D lists -- combines all papelel 1D's -> shorter more efficiant
+textFileList = []
+
 
 #--- Headers ---
 
@@ -28,7 +31,10 @@ with open("week3/demo/lab2b.csv") as csvFile:
     file = csv.reader(csvFile)
 
     for rec in file:
-
+        
+        # -- 2D lsit --
+        textFileList.append(rec)
+        #textFileList.append(rec)(['D', 'DL', 'i5', '08'.....])
         #print(rec) #show as a list -> []
 
         #keep track of the rec count in the file 
@@ -90,7 +96,20 @@ with open("week3/demo/lab2b.csv") as csvFile:
         #final print
         print(f"{compType:8} \t{manu:8} \t{processor:10} \t{ram:6} \t{hdd1:6} \t{numHdd:6} \t{hdd2:6} \t{os:6} \t{year:6}")
 
+# -- beggining of 2D notes (prrocessing) --
+# -- 2D list processing --
+for i in range(0, len(textFileList)):
 
+    print(f"LINE {i+1}: {textFileList[i]}")
+
+    for x in range (0, len(textFileList[i])):
+
+        print(f"{textFileList[i][x]}", end=" , ")
+    # -- gives space for the next list of data --
+    print()
+
+
+# -- end of 2D notes --
 
 #-- Disconected from file --
 
