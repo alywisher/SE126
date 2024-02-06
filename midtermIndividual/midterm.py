@@ -22,7 +22,7 @@ riderFname = []
 riderLname = []
 #---- MAIN HEADER PRINT ----
 print("-----------------------------------------------------------------------------------")
-print("\t\t\tWelcome to the Basgiath War College Dragon Encyclopedia")
+print("\t\t\t| Welcome to the Basgiath War College Dragon Encyclopedia |")
 print("-----------------------------------------------------------------------------------")
 
 import csv
