@@ -34,9 +34,12 @@ def dragonSearch(name):
 
 def riderSearch(name, list):
      #searchTerm is local var name and only exist in this def block
-    id = search(name,list)
-    print(f"{dragonName[id]:14} {namePronounce[id]:16} {nickName[id]:8} {meaning[id]:14} {color[id]:8} {dragonType[id]:14} {riderFname[id]:10} {riderLname[id]:14}")
-    return "" 
+    ids = search(name,list)
+    print("---------------------------------------------------------------------------------------------------\n")
+    print(f"{'DRAGON NAME':14} {'PRONOUNCIATION':16} {'NICK NAME':10} {'MEANING':14} {'COLOR':8} {'TYPE':14} {'RIDER FNAME':14} {'RIDER LNAME':10}")
+    for id in ids:
+        print(f"{dragonName[id]:14} {namePronounce[id]:16} {nickName[id]:10} {meaning[id]:14} {color[id]:8} {dragonType[id]:14} {riderFname[id]:10} {riderLname[id]:14}")
+    input("") 
     
 def search(identifier, list):
     #SEQUENTIAL SEARCH - "in sequence" -> start @ the beggining (0) go to the end (len(listName))
@@ -87,23 +90,39 @@ while menuChoice != 5: # 5 is exit
         dragonSearch(name)
 
     elif menuChoice == 2:
-        
-        choice = input("Would you like to search by [F]IRST or [L]AST name: ")
-        while choice != "F" and choice != "L":
-            print("**ERROR** Are you illiterate")
-            choice = input("Would you like to search by [F]IRST or [L]AST name: ")
-
-        name = input("Please Enter the name of the rider: ")
-        if(choice == "F"):
+        #name = input("Enter the name of the Rider: ")
+        check = ""
+        while check != "F" and check != "L":
+            check = input("Would you like to search by [F]irst or [L]ast name: ").upper()
+        name = input("Input the name: ")
+        if check == "F":
             riderSearch(name, riderFname)
         else:
             riderSearch(name, riderLname)
 
-
     elif menuChoice == 3:
-        print("---| Showing Dragon Names |---")
+        print("---------------------------------------------------") # -- just for seperation 
+        print("---| Showing Dragon Names |---") # -- Dragon names are in rec[0]
+        print("---------------------------------------------------")
+        for name in dragonName:
+            print (name)
+        print("---------------------------------------------------")
+        input("Press enter to continue...")
+        print("---------------------------------------------------")
     elif menuChoice == 4:
-        print("---| Showing Rider Names |---")
+        print("---------------------------------------------------")
+        print("---| Showing Rider Names |---") # -- Rider names are in rec[6] for first and rec[7] for last
+        print("---------------------------------------------------")
+        temp = [] # -- run in temp to stop Violrt form printing twice
+        for i in range(0, len(riderFname)):
+            name = f"{riderFname[i]} {riderLname[i]}"
+            if(name not in temp):
+                print(f"{riderFname[i]} {riderLname[i]}")
+                temp.append(name)
+        print("---------------------------------------------------")
+        input("Press enter to continue...")
+        print("---------------------------------------------------")
+
     
 
 
