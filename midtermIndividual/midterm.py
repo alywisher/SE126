@@ -83,8 +83,11 @@ def search(identifier, list):
         return 0
     return ids
 
+
+from os import system, name
 def clear():
-    system('cls')
+    system('cls') #for windows
+    
 
 #---- MAIN CODE ----
 dragonName = []
@@ -97,7 +100,6 @@ riderFname = []
 riderLname = []
 #---- IMPORT CSV ---- 
 import csv
-from os import system, name
 
 with open("midtermIndividual/dragon.csv") as csvFile:
     #Reade from File
